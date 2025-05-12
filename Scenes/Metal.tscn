@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b74rorlpvxr1k"]
+
+[ext_resource type="Script" path="res://Scripts/item.gd" id="1_ubw18"]
+[ext_resource type="Texture2D" uid="uid://ddjtj4asp8gj" path="res://Sprites/Metal.png" id="2_pfodo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ricpv"]
+size = Vector2(32, 32)
+
+[node name="Cristal" type="Area2D"]
+script = ExtResource("1_ubw18")
+tipo_item = "Metal"
+quantidade_pontos = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pfodo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ricpv")

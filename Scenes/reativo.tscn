@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://blswu15nlx7uv"]
 
-[ext_resource type="Script" path="res://Scripts/Reativo.gd" id="1_o6siy"]
+[ext_resource type="Script" path="res://Scripts/reativo.gd" id="1_o6siy"]
 [ext_resource type="Texture2D" uid="uid://ddo6beaocm8qr" path="res://Sprites/icon.svg" id="2_pag44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5co"]
@@ -13,6 +13,8 @@ size = Vector2(30, 30)
 size = Vector2(0, 0)
 
 [node name="Reativo" type="CharacterBody2D"]
+z_index = 1
+z_as_relative = false
 script = ExtResource("1_o6siy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -56,6 +58,7 @@ debug_color = Color(0.932954, 2.42579e-05, 0.646639, 0.42)
 shape = SubResource("RectangleShape2D_no4g0")
 disabled = true
 
+[connection signal="area_entered" from="Area_Detect_Objetcs" to="." method="_on_area_detect_objetcs_area_entered"]
 [connection signal="body_entered" from="AreaRight" to="." method="_on_area_right_body_entered"]
 [connection signal="body_exited" from="AreaRight" to="." method="_on_area_right_body_exited"]
 [connection signal="body_entered" from="AreaLeft" to="." method="_on_area_left_body_entered"]
