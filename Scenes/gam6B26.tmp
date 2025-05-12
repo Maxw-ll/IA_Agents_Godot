@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ih5v54fvbxur"]
+[gd_scene load_steps=8 format=3 uid="uid://ih5v54fvbxur"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_l15i4"]
 [ext_resource type="TileSet" uid="uid://oof41rb5vret" path="res://Resources/background.tres" id="2_d32ui"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://blswu15nlx7uv" path="res://Scenes/reativo.tscn" id="3_bh28i"]
 [ext_resource type="PackedScene" uid="uid://66842oj2mjgr" path="res://Scenes/Estrutura.tscn" id="4_vtrk1"]
 [ext_resource type="PackedScene" uid="uid://dtkmeaow3dnje" path="res://Scenes/estados.tscn" id="6_1jgsq"]
-[ext_resource type="PackedScene" uid="uid://cwgou840x438y" path="res://Scenes/objetivos.tscn" id="8_mohfk"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_l15i4")
@@ -25,5 +24,3 @@ position = Vector2(16, 16)
 
 [node name="Reativo" parent="." instance=ExtResource("3_bh28i")]
 position = Vector2(16, 16)
-
-[node name="Objetivos" parent="." instance=ExtResource("8_mohfk")]

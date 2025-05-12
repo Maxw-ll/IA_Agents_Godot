@@ -19,6 +19,7 @@ script = ExtResource("1_hkfrb")
 agente = "Estados"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.165194, 0, 0.970378, 1)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_8bey6")
 

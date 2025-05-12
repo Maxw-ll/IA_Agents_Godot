@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://blswu15nlx7uv"]
+[gd_scene load_steps=6 format=3 uid="uid://cwgou840x438y"]
 
-[ext_resource type="Script" path="res://Scripts/reativo.gd" id="1_o6siy"]
-[ext_resource type="Texture2D" uid="uid://ddo6beaocm8qr" path="res://Sprites/icon.svg" id="2_pag44"]
+[ext_resource type="Script" path="res://Scripts/objetivos.gd" id="1_njohv"]
+[ext_resource type="Texture2D" uid="uid://ddo6beaocm8qr" path="res://Sprites/icon.svg" id="2_jjakb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5co"]
 size = Vector2(94, 94)
@@ -12,16 +12,15 @@ size = Vector2(30, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no4g0"]
 size = Vector2(0, 0)
 
-[node name="Reativo" type="CharacterBody2D"]
+[node name="Objetivos" type="CharacterBody2D"]
 z_index = 1
 z_as_relative = false
-script = ExtResource("1_o6siy")
-agente = "Reativo"
+script = ExtResource("1_njohv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(3.08037e-06, 0.747102, 0.676073, 1)
+modulate = Color(0.8152, 0.0299374, 0.23373, 1)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_pag44")
+texture = ExtResource("2_jjakb")
 
 [node name="Area_Detect_Objetcs" type="Area2D" parent="."]
 

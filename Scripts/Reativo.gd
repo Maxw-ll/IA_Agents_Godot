@@ -3,10 +3,10 @@ class_name Reativo
 
 # Direções possíveis
 var DIRECOES = {
-	"left": Vector2.LEFT,
-	"right": Vector2.RIGHT,
-	"up": Vector2.UP,
-	"down": Vector2.DOWN
+	"left": Vector2i.LEFT,
+	"right": Vector2i.RIGHT,
+	"up": Vector2i.UP,
+	"down": Vector2i.DOWN
 }
 
 var move_interval = Constantes.MOVE_INTERVAL
@@ -43,10 +43,11 @@ func _ready():
 	global_position = Vector2i(centro_x*32+16, centro_y*32+16)
 
 func _physics_process(delta: float) -> void:
+
 	tempo_passado += delta
 	if not carregando_item and not indo_ate_item:
 		if tempo_passado > move_interval:
-			move_randomically()
+			mover_randomically()
 			tempo_passado = 0.0
 		
 	elif indo_ate_item == true:
@@ -61,11 +62,11 @@ func _physics_process(delta: float) -> void:
 		
 		
 
-func move_randomically():
+func mover_randomically():
 	act_keys = DIRECOES.keys()
 	index_move = randi() % act_keys.size()
 	nova_direcao = DIRECOES[act_keys[index_move]]
-	global_position += nova_direcao*cell_size
+	global_position = Vector2i(global_position) + nova_direcao*cell_size
 	
 
 #CONTROLE QUANDO RIGHT
@@ -73,7 +74,7 @@ func _on_area_right_body_entered(body: Node2D) -> void:
 	DIRECOES.erase("right")
 
 func _on_area_right_body_exited(body: Node2D) -> void:
-	DIRECOES["right"] = Vector2.RIGHT
+	DIRECOES["right"] = Vector2i.RIGHT
 
 
 #CONTROLE QUANDO LEFT
@@ -81,7 +82,7 @@ func _on_area_left_body_entered(body: Node2D) -> void:
 	DIRECOES.erase("left")
 	
 func _on_area_left_body_exited(body: Node2D) -> void:
-	DIRECOES["left"] = Vector2.LEFT
+	DIRECOES["left"] = Vector2i.LEFT
 
 
 #CONTROLE QUANDO UP
@@ -89,14 +90,14 @@ func _on_area_up_body_entered(body: Node2D) -> void:
 	DIRECOES.erase("up")
 
 func _on_area_up_body_exited(body: Node2D) -> void:
-	DIRECOES["up"] = Vector2.UP
+	DIRECOES["up"] = Vector2i.UP
 
 #CONTROLE QUANDO DOWN
 func _on_area_down_body_entered(body: Node2D) -> void:
 	DIRECOES.erase("down")
 
 func _on_area_down_body_exited(body: Node2D) -> void:
-	DIRECOES["down"] = Vector2.DOWN
+	DIRECOES["down"] = Vector2i.DOWN
 	
 	
 func mover_para_base():
@@ -104,7 +105,7 @@ func mover_para_base():
 
 	if pos_atual == POS_BASE:
 		carregando_item = false
-		item_carregado.erase_item()
+		BDI.atualizar_memoria_items({item_carregado.global_position: item_carregado.tipo_item}, {})
 		item_carregado = null
 		return 
 
@@ -125,8 +126,12 @@ func mover_para_item(item: Item):
 
 	if pos_atual == pos_item:
 		indo_ate_item = false
-		carregando_item = true
-		item_carregado.collect_item()
+		if item.has_collected == false:
+			item.has_collected = true
+			carregando_item = true
+			item.visible = false
+		
+			
 
 	var diferenca = pos_item - pos_atual
 	var direcao: Vector2i
@@ -140,11 +145,13 @@ func mover_para_item(item: Item):
 	global_position = tilemap.map_to_local(proxima_celula)
 	
 func _on_area_detect_objetcs_area_entered(area: Area2D) -> void:
+	#print("Chamou no Reativo")
 	if is_instance_of(area, Item) and carregando_item == false and indo_ate_item == false:
 		if area.quantidade_agentes == 1:
 			pontos_carregados += area.quantidade_pontos
 			print(pontos_carregados)
 			indo_ate_item = true
+			area.call_deferred("def_colision", false)
 			item_carregado = area
 
 		
