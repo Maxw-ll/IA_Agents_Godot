@@ -12,6 +12,10 @@ var DIRECOES = {
 var move_interval = Constantes.MOVE_INTERVAL
 @onready var area_detect_objetcs: Area2D = $Area_Detect_Objetcs
 @onready var tilemap: TileMap = $"../TileMap"
+@export_enum("Reativo", "Estados", "Objetivos", "Utilidade")
+var agente: String = ""
+
+
 
 
 var carregando_item = false
@@ -39,29 +43,30 @@ func _ready():
 	global_position = Vector2i(centro_x*32+16, centro_y*32+16)
 
 func _physics_process(delta: float) -> void:
+	tempo_passado += delta
 	if not carregando_item and not indo_ate_item:
-		tempo_passado += delta
-		act_keys = DIRECOES.keys()
-		index_move = randi() % act_keys.size()
-		nova_direcao = DIRECOES[act_keys[index_move]]
 		if tempo_passado > move_interval:
-			position += nova_direcao * cell_size
+			move_randomically()
 			tempo_passado = 0.0
 		
 	elif indo_ate_item == true:
-		tempo_passado += delta
 		if tempo_passado > move_interval:
 			mover_para_item(item_carregado)
 			tempo_passado = 0.0
-	
 	elif carregando_item == true:
-		tempo_passado += delta
+
 		if tempo_passado > move_interval:
 			mover_para_base()
 			tempo_passado = 0.0
 		
 		
 
+func move_randomically():
+	act_keys = DIRECOES.keys()
+	index_move = randi() % act_keys.size()
+	nova_direcao = DIRECOES[act_keys[index_move]]
+	global_position += nova_direcao*cell_size
+	
 
 #CONTROLE QUANDO RIGHT
 func _on_area_right_body_entered(body: Node2D) -> void:

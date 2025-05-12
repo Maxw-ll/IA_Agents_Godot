@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Constantes="*res://Scripts/constantes.gd"
+BDI="*res://Scripts/BDI.gd"
 
 [display]
 

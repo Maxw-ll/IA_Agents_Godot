@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://blswu15nlx7uv"]
+[gd_scene load_steps=6 format=3 uid="uid://dtkmeaow3dnje"]
 
-[ext_resource type="Script" path="res://Scripts/reativo.gd" id="1_o6siy"]
-[ext_resource type="Texture2D" uid="uid://ddo6beaocm8qr" path="res://Sprites/icon.svg" id="2_pag44"]
+[ext_resource type="Script" path="res://Scripts/estados.gd" id="1_hkfrb"]
+[ext_resource type="Texture2D" uid="uid://ddo6beaocm8qr" path="res://Sprites/icon.svg" id="2_8bey6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5co"]
 size = Vector2(94, 94)
@@ -12,15 +12,15 @@ size = Vector2(30, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no4g0"]
 size = Vector2(0, 0)
 
-[node name="Reativo" type="CharacterBody2D"]
+[node name="Estados" type="CharacterBody2D"]
 z_index = 1
 z_as_relative = false
-script = ExtResource("1_o6siy")
-agente = "Reativo"
+script = ExtResource("1_hkfrb")
+agente = "Estados"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_pag44")
+texture = ExtResource("2_8bey6")
 
 [node name="Area_Detect_Objetcs" type="Area2D" parent="."]
 
