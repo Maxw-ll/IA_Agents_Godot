@@ -1,5 +1,9 @@
 extends Node2D
 
+####################################################
+######## CRIAÇÃO DO MAPA E INSTÂNCIA DOS AGENTES ###
+####################################################
+
 @onready var tilemap: TileMap = $TileMap
 
 const NUM_COLS = 36
