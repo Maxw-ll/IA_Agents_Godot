@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://blswu15nlx7uv"]
 
-[ext_resource type="Script" path="res://Scripts/general_agent.gd" id="1_o6siy"]
+[ext_resource type="Script" path="res://Scripts/Reativo.gd" id="1_o6siy"]
 [ext_resource type="Texture2D" uid="uid://ddo6beaocm8qr" path="res://Sprites/icon.svg" id="2_pag44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5co"]
@@ -9,7 +9,7 @@ size = Vector2(96, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no4g0"]
 size = Vector2(0, 0)
 
-[node name="GeneralAgent" type="CharacterBody2D"]
+[node name="Reativo" type="CharacterBody2D"]
 script = ExtResource("1_o6siy")
 
 [node name="Area2D" type="Area2D" parent="."]

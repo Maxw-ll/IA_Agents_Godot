@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ih5v54fvbxur"]
+
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_spara"]
+[ext_resource type="TileSet" uid="uid://oof41rb5vret" path="res://Resources/Background.tres" id="2_30o40"]
+[ext_resource type="PackedScene" uid="uid://blswu15nlx7uv" path="res://Scenes/general_agent.tscn" id="3_ab1dn"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_spara")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_30o40")
+rendering_quadrant_size = 32
+format = 2
+
+[node name="GeneralAgent" parent="." instance=ExtResource("3_ab1dn")]
+position = Vector2(16, 16)

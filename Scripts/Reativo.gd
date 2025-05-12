@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+
+####################################################
+######## CRIAÇÃO DO MAPA E INSTÂNCIA DOS AGENTES ###
+####################################################
+
 @onready var area_2d: Area2D = $Area2D
 
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
