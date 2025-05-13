@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://ih5v54fvbxur"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_l15i4"]
-[ext_resource type="TileSet" uid="uid://oof41rb5vret" path="res://Resources/Background.tres" id="2_d32ui"]
+[ext_resource type="TileSet" uid="uid://oof41rb5vret" path="res://Resources/background.tres" id="2_d32ui"]
 [ext_resource type="PackedScene" uid="uid://cpwk0xgteqt" path="res://Scenes/Cristal.tscn" id="2_t7jdk"]
 [ext_resource type="PackedScene" uid="uid://b74rorlpvxr1k" path="res://Scenes/Metal.tscn" id="3_0mx6s"]
 [ext_resource type="PackedScene" uid="uid://blswu15nlx7uv" path="res://Scenes/reativo.tscn" id="3_bh28i"]
 [ext_resource type="PackedScene" uid="uid://66842oj2mjgr" path="res://Scenes/Estrutura.tscn" id="4_vtrk1"]
 [ext_resource type="PackedScene" uid="uid://dtkmeaow3dnje" path="res://Scenes/estados.tscn" id="6_1jgsq"]
 [ext_resource type="PackedScene" uid="uid://cwgou840x438y" path="res://Scenes/objetivos.tscn" id="8_mohfk"]
-[ext_resource type="PackedScene" uid="uid://cpgjkt5apion3" path="res://Scenes/utilidades.tscn" id="9_8hpwm"]
-[ext_resource type="PackedScene" uid="uid://ss84dox0upll" path="res://Scenes/legenda.tscn" id="10_rphr3"]
+[ext_resource type="PackedScene" path="res://Scenes/utilidades.tscn" id="9_8hpwm"]
+[ext_resource type="PackedScene" path="res://Scenes/legenda.tscn" id="10_rphr3"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_l15i4")
