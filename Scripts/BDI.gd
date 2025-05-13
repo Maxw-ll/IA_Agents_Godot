@@ -23,7 +23,7 @@ func solicitar_memoria_cells_global():
 func solicitar_memoria_items_global():
 	return memoria_items_global.duplicate()
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass
 	#print("MEMORIA BDI")
 	#print(memoria_items_global)

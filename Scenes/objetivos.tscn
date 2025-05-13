@@ -18,7 +18,7 @@ z_as_relative = false
 script = ExtResource("1_njohv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.8152, 0.0299374, 0.23373, 1)
+modulate = Color(0.994963, 0.274345, 0.368614, 1)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_jjakb")
 

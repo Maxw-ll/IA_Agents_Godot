@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpgjkt5apion3"]
+
+[ext_resource type="Script" path="res://Scripts/utilidades.gd" id="1_ym5rw"]
+[ext_resource type="Texture2D" uid="uid://ddo6beaocm8qr" path="res://Sprites/icon.svg" id="2_ioexe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5co"]
+size = Vector2(94, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dghwv"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no4g0"]
+size = Vector2(0, 0)
+
+[node name="Utilidades" type="CharacterBody2D"]
+z_index = 1
+z_as_relative = false
+script = ExtResource("1_ym5rw")
+agente = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.740358, 0.477269, 1, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_ioexe")
+
+[node name="Area_Detect_Objetcs" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Detect_Objetcs"]
+shape = SubResource("RectangleShape2D_ta5co")
+
+[node name="AreaRight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRight"]
+position = Vector2(31, 0)
+shape = SubResource("RectangleShape2D_dghwv")
+debug_color = Color(0.932954, 2.42579e-05, 0.646639, 0.42)
+
+[node name="AreaLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AreaLeft"]
+position = Vector2(-31, 0)
+shape = SubResource("RectangleShape2D_dghwv")
+debug_color = Color(0.932954, 2.42579e-05, 0.646639, 0.42)
+
+[node name="AreaUp" type="Area2D" parent="."]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AreaUp"]
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_dghwv")
+debug_color = Color(0.932954, 2.42579e-05, 0.646639, 0.42)
+
+[node name="AreaDown" type="Area2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="AreaDown"]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_dghwv")
+debug_color = Color(0.932954, 2.42579e-05, 0.646639, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_no4g0")
+disabled = true
+
+[connection signal="area_entered" from="Area_Detect_Objetcs" to="." method="_on_area_detect_objetcs_area_entered"]
+[connection signal="body_entered" from="AreaRight" to="." method="_on_area_right_body_entered"]
+[connection signal="body_exited" from="AreaRight" to="." method="_on_area_right_body_exited"]
+[connection signal="body_entered" from="AreaLeft" to="." method="_on_area_left_body_entered"]
+[connection signal="body_exited" from="AreaLeft" to="." method="_on_area_left_body_exited"]
+[connection signal="body_entered" from="AreaUp" to="." method="_on_area_up_body_entered"]
+[connection signal="body_exited" from="AreaUp" to="." method="_on_area_up_body_exited"]
+[connection signal="body_entered" from="AreaDown" to="." method="_on_area_down_body_entered"]
+[connection signal="body_exited" from="AreaDown" to="." method="_on_area_down_body_exited"]

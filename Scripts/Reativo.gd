@@ -70,33 +70,33 @@ func mover_randomically():
 	
 
 #CONTROLE QUANDO RIGHT
-func _on_area_right_body_entered(body: Node2D) -> void:
+func _on_area_right_body_entered(_body: Node2D) -> void:
 	DIRECOES.erase("right")
 
-func _on_area_right_body_exited(body: Node2D) -> void:
+func _on_area_right_body_exited(_body: Node2D) -> void:
 	DIRECOES["right"] = Vector2i.RIGHT
 
 
 #CONTROLE QUANDO LEFT
-func _on_area_left_body_entered(body: Node2D) -> void:
+func _on_area_left_body_entered(_body: Node2D) -> void:
 	DIRECOES.erase("left")
 	
-func _on_area_left_body_exited(body: Node2D) -> void:
+func _on_area_left_body_exited(_body: Node2D) -> void:
 	DIRECOES["left"] = Vector2i.LEFT
 
 
 #CONTROLE QUANDO UP
-func _on_area_up_body_entered(body: Node2D) -> void:
+func _on_area_up_body_entered(_body: Node2D) -> void:
 	DIRECOES.erase("up")
 
-func _on_area_up_body_exited(body: Node2D) -> void:
+func _on_area_up_body_exited(_body: Node2D) -> void:
 	DIRECOES["up"] = Vector2i.UP
 
 #CONTROLE QUANDO DOWN
-func _on_area_down_body_entered(body: Node2D) -> void:
+func _on_area_down_body_entered(_body: Node2D) -> void:
 	DIRECOES.erase("down")
 
-func _on_area_down_body_exited(body: Node2D) -> void:
+func _on_area_down_body_exited(_body: Node2D) -> void:
 	DIRECOES["down"] = Vector2i.DOWN
 	
 	

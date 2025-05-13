@@ -74,10 +74,10 @@ func preencher_cenario_com_terreno():
 	var coords_chao: Array[Vector2i] = []
 	var coords_borda: Array[Vector2i] = []
 	var coords_centro: Array[Vector2i] = []
-
+	var coord
 	for y in range(rows):
 		for x in range(cols):
-			var coord = Vector2i(x, y)
+			coord = Vector2i(x, y)
 			if x == 0 or x == cols - 1 or y == 0 or y == rows - 1:
 				coords_borda.append(coord)
 			else:
@@ -87,7 +87,7 @@ func preencher_cenario_com_terreno():
 	var centro_x = int(cols / 2) 
 	var centro_y = int(rows / 2)
 
-	var coord = Vector2i(centro_x, centro_y)
+	coord = Vector2i(centro_x, centro_y)
 	coords_centro.append(coord)
 	coords_chao.erase(coord)  # remover do chão
 

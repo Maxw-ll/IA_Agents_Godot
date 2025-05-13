@@ -1,4 +1,5 @@
 extends States
+class_name Objetivos
 
 var memory_objetives = {}
 
@@ -18,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		if tempo_passado > move_interval:
 			mover_para_item_longe(memory_objetives.keys()[0])
 			tempo_passado = 0.0
-			print("Tenho Obetivo")
+			#print("Tenho Obetivo")
 		
 	elif not carregando_item and not indo_ate_item:
 		if tempo_passado > move_interval:
