@@ -2,6 +2,7 @@ extends Node
 
 var memoria_cells_global: Array = []
 var memoria_items_global: Dictionary = {}
+var objetivo_ajuda = {}
 
 func atualizar_memoria_cell(memoria_local: Array):
 	for coord in memoria_local:
@@ -22,9 +23,15 @@ func solicitar_memoria_cells_global():
 
 func solicitar_memoria_items_global():
 	return memoria_items_global.duplicate()
+
+func solicitar_memoria_ajuda():
+	return objetivo_ajuda.duplicate()
+
+func solicitar_ajuda(coords):
+	objetivo_ajuda[coords] = "Estrutura"
+
+func  ajuda_realizada(coords):
+	objetivo_ajuda.erase(coords)
 	
-func _physics_process(_delta: float) -> void:
-	pass
-	#print("MEMORIA BDI")
-	#print(memoria_items_global)
+	
 	

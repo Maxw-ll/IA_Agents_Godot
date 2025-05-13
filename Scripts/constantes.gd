@@ -1,7 +1,7 @@
 extends Node
 
 
-var MOVE_INTERVAL = 0.10
+var MOVE_INTERVAL = 0.25
 var COLS = 37
 var ROWS = 31
 var CELL_SIZE = 32
@@ -9,7 +9,7 @@ var CELL_SIZE = 32
 
 var QTDCRISTAL: int = 100
 var QTDMETAL: int = 100
-var QTDESTRUTURA: int = 2
+var QTDESTRUTURA: int = 100
 
 var VALORES_ITEMS = {
 	"Cristal": 10,

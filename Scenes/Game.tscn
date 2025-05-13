@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ih5v54fvbxur"]
+[gd_scene load_steps=11 format=3 uid="uid://ih5v54fvbxur"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_l15i4"]
 [ext_resource type="TileSet" uid="uid://oof41rb5vret" path="res://Resources/Background.tres" id="2_d32ui"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dtkmeaow3dnje" path="res://Scenes/estados.tscn" id="6_1jgsq"]
 [ext_resource type="PackedScene" uid="uid://cwgou840x438y" path="res://Scenes/objetivos.tscn" id="8_mohfk"]
 [ext_resource type="PackedScene" uid="uid://cpgjkt5apion3" path="res://Scenes/utilidades.tscn" id="9_8hpwm"]
+[ext_resource type="PackedScene" uid="uid://ss84dox0upll" path="res://Scenes/legenda.tscn" id="10_rphr3"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_l15i4")
@@ -30,3 +31,9 @@ position = Vector2(16, 16)
 [node name="Objetivos" parent="." instance=ExtResource("8_mohfk")]
 
 [node name="Utilidades" parent="." instance=ExtResource("9_8hpwm")]
+
+[node name="Legenda" parent="." instance=ExtResource("10_rphr3")]
+offset_left = 785.0
+offset_top = 70.0
+offset_right = 785.0
+offset_bottom = 70.0

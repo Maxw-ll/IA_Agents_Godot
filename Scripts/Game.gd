@@ -13,6 +13,7 @@ var qtd_metal: int = Constantes.QTDMETAL
 var qtd_estrutura: int = Constantes.QTDESTRUTURA
 
 @onready var tilemap: TileMap = $TileMap
+@onready var legenda: Control = $Legenda
 
 var cols = Constantes.COLS
 var rows = Constantes.ROWS
@@ -24,16 +25,17 @@ const TERRENO_CHAO = 0
 const TERRENO_PAREDE = 1
 const TERRENO_OBSTACULO = 2
 
-
+const LARGURA_LEGENDA = 250
 
 func ajustar_tamanho_janela():
 	var largura = cols * cell_size
 	var altura = rows * cell_size
 
-	DisplayServer.window_set_size(Vector2i(largura, altura))
+	DisplayServer.window_set_size(Vector2i(largura + LARGURA_LEGENDA, altura))
 
 func _ready():
-	
+	legenda.global_position = Vector2(cols*cell_size, 0)
+	legenda.sete_size(LARGURA_LEGENDA, rows*cell_size)
 	randomize()
 	var posicoes_validas = gerar_posicoes_validas()
 	distribuir_itens(cena_cristal, qtd_cristal, posicoes_validas)

@@ -13,3 +13,8 @@ res://Scripts/utilidades.gd
 res://Scripts/constantes.gd
 res://Scripts/item.gd
 res://Scripts/legenda.gd
+res://Scenes/legenda.tscn
+res://Scripts/game.gd
+res://Scripts/reativo.gd
+res://Scripts/estados.gd
+res://Scripts/BDI.gd

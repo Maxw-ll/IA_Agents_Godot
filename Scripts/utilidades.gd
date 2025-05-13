@@ -1,6 +1,8 @@
 extends Objetivos
 var better_item = null
 
+var esperando_ajuda = false
+
 func utilidade(valor, coords):
 	var dist = global_position.distance_to(coords)
 	return (valor * 0.6) / (dist + 0.1) * 0.4
@@ -29,11 +31,14 @@ func _physics_process(delta: float) -> void:
 		memory_objetives = BDI.solicitar_memoria_cells_global()
 		
 	tempo_passado += delta
-	#print("MEMORIA OBJETIVOS")
-	#print(memory_objetives)
+	if BDI.solicitar_memoria_ajuda().is_empty():
+		esperando_ajuda = false
+		
 	if memory_objetives and not carregando_item and not indo_ate_item:
 		if better_item == null:
 			better_item = decide_better_item()
+			if memory_objetives[better_item] == "Estrutura":
+				BDI.solicitar_ajuda(better_item)
 
 		if tempo_passado > move_interval:
 			mover_para_item_longe(better_item)
@@ -49,11 +54,12 @@ func _physics_process(delta: float) -> void:
 		if tempo_passado > move_interval:
 			mover_para_item(item_carregado)
 			tempo_passado = 0.0
-	elif carregando_item == true:
-
+	elif carregando_item == true and not esperando_ajuda:
 		if tempo_passado > move_interval:
 			mover_para_base()
 			tempo_passado = 0.0
+	
+
 
 #OVERRIDE
 func mover_para_item(item: Item):
@@ -67,6 +73,10 @@ func mover_para_item(item: Item):
 			item.has_collected = true
 			carregando_item = true
 			item.visible = false
+			
+			if item.tipo_item == "Estrutura":
+				esperando_ajuda = true
+				
 			
 		memory_objetives.erase(item.global_position)
 		better_item = null
@@ -113,7 +123,16 @@ func _on_area_detect_objetcs_area_entered(area: Area2D) -> void:
 	if is_instance_of(area, Item) and carregando_item == false and indo_ate_item == false:
 		if area.quantidade_agentes == 1:
 			pontos_carregados += area.quantidade_pontos
+			legenda.atc_label_pontos(agente, pontos_carregados)
 			print(pontos_carregados)
 			indo_ate_item = true
 			area.call_deferred("def_colision", false)
 			item_carregado = area
+		if better_item != null:
+			if memory_objetives[better_item] == "Estrutura" and area.quantidade_agentes == 2:
+				pontos_carregados += area.quantidade_pontos
+				legenda.atc_label_pontos(agente, pontos_carregados)
+				print(pontos_carregados)
+				indo_ate_item = true
+				area.call_deferred("def_colision", false)
+				item_carregado = area

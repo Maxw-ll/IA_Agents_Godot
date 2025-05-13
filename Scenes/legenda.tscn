@@ -1,18 +1,123 @@
-[gd_scene load_steps=2 format=3 uid="uid://ss84dox0upll"]
+[gd_scene load_steps=6 format=3 uid="uid://ss84dox0upll"]
 
 [ext_resource type="Script" path="res://Scripts/legenda.gd" id="1_k50j3"]
+[ext_resource type="PackedScene" uid="uid://blswu15nlx7uv" path="res://Scenes/reativo.tscn" id="2_x0eu6"]
+[ext_resource type="PackedScene" uid="uid://dtkmeaow3dnje" path="res://Scenes/estados.tscn" id="3_nj74b"]
+[ext_resource type="PackedScene" uid="uid://cwgou840x438y" path="res://Scenes/objetivos.tscn" id="4_5o0pq"]
+[ext_resource type="PackedScene" uid="uid://cpgjkt5apion3" path="res://Scenes/utilidades.tscn" id="5_osef8"]
 
 [node name="Legenda" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -906.0
+offset_right = -993.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k50j3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 283.0
+offset_right = 285.0
 offset_bottom = 953.0
+
+[node name="Pontos" type="Label" parent="ColorRect"]
+layout_mode = 1
+offset_left = 50.0
+offset_right = 218.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Pontos"
+
+[node name="Reativo" type="Label" parent="ColorRect"]
+layout_mode = 1
+offset_top = 90.0
+offset_right = 91.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Reativo"
+
+[node name="Estados" type="Label" parent="ColorRect"]
+layout_mode = 1
+offset_left = 3.0
+offset_top = 150.0
+offset_right = 94.0
+offset_bottom = 185.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Estados"
+
+[node name="Objetivos" type="Label" parent="ColorRect"]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 215.0
+offset_right = 95.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Objetivos"
+
+[node name="Utilidade" type="Label" parent="ColorRect"]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 274.0
+offset_right = 115.0
+offset_bottom = 309.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Utilidade
+"
+
+[node name="util" type="Label" parent="ColorRect"]
+layout_mode = 1
+offset_left = 160.0
+offset_top = 276.0
+offset_right = 277.0
+offset_bottom = 311.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+
+[node name="obj" type="Label" parent="ColorRect"]
+layout_mode = 1
+offset_left = 159.0
+offset_top = 215.0
+offset_right = 276.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+
+[node name="est" type="Label" parent="ColorRect"]
+layout_mode = 1
+offset_left = 158.0
+offset_top = 151.0
+offset_right = 275.0
+offset_bottom = 186.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+
+[node name="reat" type="Label" parent="ColorRect"]
+layout_mode = 1
+offset_left = 155.0
+offset_top = 89.0
+offset_right = 272.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+
+[node name="Reativo" parent="." instance=ExtResource("2_x0eu6")]
+position = Vector2(135, 107)
+script = null
+
+[node name="Estados" parent="." instance=ExtResource("3_nj74b")]
+position = Vector2(135, 169)
+script = null
+
+[node name="Objetivos" parent="." instance=ExtResource("4_5o0pq")]
+position = Vector2(135, 232)
+script = null
+
+[node name="Utilidades" parent="." instance=ExtResource("5_osef8")]
+position = Vector2(134, 293)
+script = null

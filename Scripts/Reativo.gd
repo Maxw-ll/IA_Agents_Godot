@@ -15,6 +15,7 @@ var move_interval = Constantes.MOVE_INTERVAL
 @export_enum("Reativo", "Estados", "Objetivos", "Utilidade")
 var agente: String = ""
 
+@onready var legenda: Control = $"../Legenda"
 
 
 
@@ -149,6 +150,7 @@ func _on_area_detect_objetcs_area_entered(area: Area2D) -> void:
 	if is_instance_of(area, Item) and carregando_item == false and indo_ate_item == false:
 		if area.quantidade_agentes == 1:
 			pontos_carregados += area.quantidade_pontos
+			legenda.atc_label_pontos(agente, pontos_carregados)
 			print(pontos_carregados)
 			indo_ate_item = true
 			area.call_deferred("def_colision", false)

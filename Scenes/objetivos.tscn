@@ -16,6 +16,7 @@ size = Vector2(0, 0)
 z_index = 1
 z_as_relative = false
 script = ExtResource("1_njohv")
+agente = "Objetivos"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.994963, 0.274345, 0.368614, 1)
