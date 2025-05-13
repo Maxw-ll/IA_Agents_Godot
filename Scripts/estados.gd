@@ -116,7 +116,8 @@ func mover_para_item(item: Item):
 	global_position = tilemap.map_to_local(proxima_celula)	
 	
 		
-	
+
+		
 #OVERRRIDE
 func _on_area_detect_objetcs_area_entered(area: Area2D) -> void:
 	if is_instance_of(area, Item) and (indo_ate_item or carregando_item):
