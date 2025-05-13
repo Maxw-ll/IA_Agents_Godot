@@ -1,0 +1,11 @@
+States
+Reativo
+Sprite2D
+CollisionShape2D
+Area2D
+Node
+TileMap
+TileMapLayer
+CharacterBody2D
+StaticBody2D
+Camera2D
