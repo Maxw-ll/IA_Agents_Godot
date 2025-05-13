@@ -12,10 +12,15 @@ func _physics_process(delta: float) -> void:
 		memory_objetives = BDI.solicitar_memoria_cells_global()
 		
 	tempo_passado += delta
-	print(memory_objetives)
-	if memory_objetives:
-		mover_para_item_longe([memory_objetives.keys()[0]])
-	if not carregando_item and not indo_ate_item:
+	#print("MEMORIA OBJETIVOS")
+	#print(memory_objetives)
+	if memory_objetives and not carregando_item and not indo_ate_item:
+		if tempo_passado > move_interval:
+			mover_para_item_longe(memory_objetives.keys()[0])
+			tempo_passado = 0.0
+			print("Tenho Obetivo")
+		
+	elif not carregando_item and not indo_ate_item:
 		if tempo_passado > move_interval:
 			mover_novas_direcoes()
 			tempo_passado = 0.0
@@ -67,7 +72,8 @@ func mover_para_item(item: Item):
 			item.has_collected = true
 			carregando_item = true
 			item.visible = false
-			memory_objetives.erase(item.global_position)
+			
+		memory_objetives.erase(item.global_position)
 		
 			
 
@@ -89,7 +95,10 @@ func mover_para_item_longe(coord):
 
 	var diferenca = pos_item - pos_atual
 	var direcao: Vector2i
-
+	
+	if pos_item == pos_atual:
+		memory_objetives.erase(coord)
+		
 	if diferenca.x != 0:
 		direcao = Vector2i(sign(diferenca.x), 0)  # Move no eixo X
 	else:

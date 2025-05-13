@@ -25,5 +25,6 @@ func solicitar_memoria_items_global():
 	
 func _physics_process(delta: float) -> void:
 	pass
-	print(memoria_items_global)
+	#print("MEMORIA BDI")
+	#print(memoria_items_global)
 	
